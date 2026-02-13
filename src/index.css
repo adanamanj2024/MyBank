@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Dark Futuristic Theme - Red/Black/Grey */
+  --background: 240 10% 4%;
+  --foreground: 0 0% 95%;
+
+  --card: 240 10% 6%;
+  --card-foreground: 0 0% 95%;
+
+  --popover: 240 10% 6%;
+  --popover-foreground: 0 0% 95%;
+
+  --primary: 0 72% 51%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 240 6% 10%;
+  --secondary-foreground: 0 0% 90%;
+
+  --muted: 240 6% 12%;
+  --muted-foreground: 240 5% 60%;
+
+  --accent: 0 72% 51%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 6% 15%;
+  --input: 240 6% 15%;
+  --ring: 0 72% 51%;
+
+  --radius: 0.5rem;
+
+  --sidebar-background: 240 10% 5%;
+  --sidebar-foreground: 0 0% 90%;
+  --sidebar-primary: 0 72% 51%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 6% 10%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-border: 240 6% 12%;
+  --sidebar-ring: 0 72% 51%;
+
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide uppercase;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsla(var(--primary), 0.5);
+  }
+  .border-glow {
+    box-shadow: 0 0 10px -2px hsla(var(--primary), 0.3);
+  }
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, hsl(240 6% 8%) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(240 6% 8%) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, transparent, black, transparent);
+  }
+  .shadow-primary-glow {
+    box-shadow: 0 0 20px -5px hsl(0 72% 51% / 0.4);
+  }
+  .shadow-primary-glow-lg {
+    box-shadow: 0 0 30px -5px hsl(0 72% 51% / 0.3);
+  }
+}
